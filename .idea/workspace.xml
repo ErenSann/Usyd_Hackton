@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df64485d-974e-42bf-b067-fe0b3b121815" name="Changes" comment="" />
+    <list default="true" id="df64485d-974e-42bf-b067-fe0b3b121815" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +48,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "login/logout",
+    "git-widget-placeholder": "frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -102,7 +106,7 @@
       <updated>1693031042468</updated>
       <workItem from="1693031047049" duration="113000" />
       <workItem from="1693031183821" duration="2615000" />
-      <workItem from="1693040748827" duration="352000" />
+      <workItem from="1693040748827" duration="2835000" />
     </task>
     <servers />
   </component>
