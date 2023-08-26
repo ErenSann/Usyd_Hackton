@@ -1,5 +1,5 @@
 // create a list of markers
-function addMarker(location, color , name, description, creator) {
+function addMarker(id ,location, color , name, description, creator) {
   var marker = new google.maps.Marker({
     position: location,
     map: map,
@@ -16,27 +16,34 @@ function addMarker(location, color , name, description, creator) {
     }
   });
   lastMarker = marker;
-//  marker.addListener('click', function() {
-//      var infoBox = document.getElementById("info-box");
-//      infoBox.classList.remove("hidden");
-//      infoBox.innerHTML = `<h3>${marker.name}</h3><p>${marker.description}</p><p>${marker.creator}</p>`;
-//            infoBox.innerHTML = `<h3>${name}</h3><p>${description}</p><p>${creator}</p>`;
-//   });
 
-// Add the marker click event
-marker.addListener('click', function() {
-    var pointBox = document.getElementById("point-box");
+    // Add the marker click event
+   marker.addListener('click', function() {
+       var pointBox = document.getElementById("point-box");
 
-    // Remove the 'hidden' class to make it visible
-    pointBox.classList.remove("hidden");
+       // Remove the 'hidden' class to make it visible
+       pointBox.classList.remove("hidden");
 
-    // Insert data into point-box
-    pointBox.innerHTML = `<span id="close-point-box" style="cursor:pointer;">x</span><h3>Name : ${name}</h3><p> Description : ${description}</p><p>Creator : ${creator}</p>`;
+       // Insert data into point-box
+       pointBox.innerHTML = `<span id="close-point-box" style="cursor:pointer;">x</span><h3>Name : ${name}</h3><p> Description : ${description}</p><p>Creator : ${creator}</p><p>ChatRoom: ${id}</p>`;
 
-    // Attach close event to newly added close button
-    document.getElementById("close-point-box").addEventListener('click', function() {
+
+
+});
+
+}
+document.getElementById("close-point-box").addEventListener('click', function() {
         pointBox.classList.add("hidden");
+        room = None;
     });
+
+document.getElementById('joinRoom').addEventListener('click', function() {
+     var room = prompt('Enter room name:');
+     console.log(room);
+     if (room) {
+         socket.emit('join', {'room': room, 'username': 'YourUsername'});
+         openChatWindow(room);
+     }
 });
 
 // Hide the point-box when clicking the close button
@@ -45,7 +52,7 @@ document.getElementById("close-point-box").addEventListener('click', function() 
     pointBox.classList.add("hidden");
 });
 
-}
+// Hide the point-box when clicking outside of it
 
 function savePinToServer(name, description, location, color) {
   fetch('/pins', {

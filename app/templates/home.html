@@ -3,11 +3,14 @@
 <head>
     <title>Simple Google Maps App</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='map.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='chat.css') }}">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnRpQ2BiFb6skH2qkvgCW0Bthwb83PVf0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <script src="{{ url_for('static', filename='map.js') }}" defer></script>
     <script src="{{ url_for('static', filename='infoBox.js') }}" defer></script>
     <script src="{{ url_for('static', filename='pin.js') }}" defer></script>
     <script src="{{ url_for('static', filename='util.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='chat.js') }}" defer></script>
 </head>
 <body>
 <header>
@@ -16,15 +19,15 @@
         <p>Interact, Connect, and Explore</p>
     </div>
     <div class="header-buttons">
-        <a href="/chat"><button class="chat-button">Go to Chat</button></a>
+        <button id="joinRoom">Join Room</button>
         <a href="/logout"><button class="logout-button">Logout</button></a>
     </div>
 </header>
 <div id="map-canvas"></div>
 <div id="color-selection">
-    <button data-color="red">Red Pin</button>
-    <button data-color="blue">Blue Pin</button>
-    <button data-color="green">Green Pin</button>
+    <button data-color="red">Emergency</button>
+    <button data-color="blue">RewardTask</button>
+    <button data-color="green">Normal</button>
 </div>
 <div id="action-buttons">
     <button onclick="toggleCreatePoint()">Create Point</button>
@@ -47,12 +50,14 @@
     </div>
     <ul id="pin-list"></ul>
 </div>
+
 <div id="point-box" class="hidden info-point-box">
     <span id="close-point-box" style="cursor:pointer;">x</span>
     <h3 id="point-name"></h3>
     <p id="point-description"></p>
     <p id="point-creator"></p>
 </div>
+
 
 </body>
 </html>

@@ -20,7 +20,7 @@ function initialize() {
   if (data && Array.isArray(data)) {
     data.forEach(pin => {
       var location = new google.maps.LatLng(pin.lat, pin.lng);
-      addMarker(location, pin.color, pin.name, pin.description, pin.creator);  // Added more args here
+      addMarker(pin.id ,location, pin.color, pin.name, pin.description, pin.creator);  // Added more args here
       addPinInfoToList(pin.name, pin.description, location, pin.color);
          });
     }

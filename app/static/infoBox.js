@@ -18,7 +18,17 @@ function addPinInfoToList(name, description, location, color) {
   console.log(name, description, location, color);
   const ul = document.getElementById("pin-list");
   const li = document.createElement("li");
-  li.appendChild(document.createTextNode(`${name} (${location.lat().toFixed(2)}, ${location.lng().toFixed(2)}) - ${description} - Color: ${color}`));
+  let task = ''; // Declare task with 'let'
+
+  if (color === 'red') {
+    task = 'urgent';
+  } else if (color === 'green') { // Use 'else if' instead of 'elif'
+    task = 'normal';
+  } else if (color === 'blue') { // Use 'else if' instead of 'elif'
+    task = 'reward tasks';
+  }
+
+  li.appendChild(document.createTextNode(`Name: ${name} (${location.lat().toFixed(2)}, ${location.lng().toFixed(2)}) - Description: ${description} - Task: ${task}`));
   ul.appendChild(li);
 }
 

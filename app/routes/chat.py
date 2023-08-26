@@ -14,30 +14,30 @@ def chat():
 
 @socketio.on('connect')
 def handle_connect():
-    if 'username' in session:
-        user_rooms[session['username']] = None
+    pass
 
 @socketio.on('join')
 def handle_join(data):
-    if 'username' in session:
-        room = data['room']
-        user_rooms[session['username']] = room
-        join_room(room)
-        emit('message', {'user': 'System', 'message': f'{session["username"]} has joined the room {room}.'}, room=room)
+    room = data['room']
+    username = data['username']
+    join_room(room)
+    user_rooms[username] = room
+    emit('message', {'user': 'System', 'message': f'{username} has joined the room {room}.'}, room=room)
 
 
 @socketio.on('leave')
-def handle_leave():
-    if 'username' in session:
-        room = user_rooms[session['username']]
-        if room:
-            leave_room(room)
-            emit('message', {'user': 'System', 'message': f'{session["username"]} has left the room {room}.'}, room=room)
-            user_rooms[session['username']] = None
+def handle_leave(data):
+    room = data['room']
+    username = data['username']
+    leave_room(room)
+    emit('message', {'user': 'System', 'message': f'{username} has left the room {room}.'}, room=room)
+
 
 @socketio.on('message')
 def handle_message(data):
-    if 'username' in session:
-        room = user_rooms[session['username']]
-        if room:
-            emit('message', {'user': session['username'], 'message': data['message']}, room=room)
+    room = data['room']
+    username = session['username']
+    message = data['message']
+    emit('message', {'user': username, 'message': message, 'room': room}, room=room)
+
+

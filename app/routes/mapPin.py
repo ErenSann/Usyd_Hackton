@@ -11,7 +11,8 @@ def add_pin():
 
 @main.route('/pins', methods=['GET'])
 def get_pins():
-    pinpoints = get_all_pinpoints(session.get('user_id'))
+    # pinpoints = get_all_pinpoints(session.get('user_id'))
+    pinpoints = get_all_pinpoints()
     # Convert the pinpoints data to a JSON serializable format
     pinpoints_list = []
     for pin in pinpoints:

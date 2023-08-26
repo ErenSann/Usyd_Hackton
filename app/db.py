@@ -45,8 +45,7 @@ def create_tables_if_not_exists():
         description TEXT,
         lat DOUBLE NOT NULL,
         lng DOUBLE NOT NULL,
-        color VARCHAR(20) NOT NULL
-        
+        color VARCHAR(20) NOT NULL     
     );
     ''')
     conn.commit()
@@ -60,8 +59,14 @@ def insert_pinpoint(user_id, name, description, lat, lng, color):
     conn.commit()
     conn.close()
 
-def get_all_pinpoints(id):
+# def get_all_pinpoints(id):
+#     conn = get_db()
+#     cursor = conn.cursor()
+#     cursor.execute("SELECT * FROM pinpoints where user_id=%s", (id,))
+#     return cursor.fetchall()
+
+def get_all_pinpoints():
     conn = get_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM pinpoints where user_id=%s", (id,))
+    cursor.execute("SELECT * FROM pinpoints")
     return cursor.fetchall()
