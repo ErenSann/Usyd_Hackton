@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+#imageContainer {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Hide any overflow of the child elements */
+    position: relative; /* Set to relative so we can use absolute positioning for the child image */
+}
+
+#myImage {
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    position: absolute; /* Allow for easy left positioning changes */
+    left: 0; /* Starting position */
+}
