@@ -1,0 +1,108 @@
+/* Resetting default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Header styles */
+header {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    padding: 0.5rem;
+    text-align: center;
+    animation: fadeIn 3s ease-in;
+}
+
+.header-content h1 {
+    font-size: 2.0rem;
+}
+
+.header-content p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.header-buttons {
+    margin-top: 1rem;
+}
+
+/* Map styles */
+#map-canvas {
+    height: 500px;
+    width: 70%;
+    float: left;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Info and action buttons */
+#info-box, #action-buttons, #color-selection {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Pin and Point box styles */
+.info-point-box, #pin-form {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#pin-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#point-box {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+#close-point-box {
+    cursor: pointer;
+}
+
+/* Buttons */
+button, .button, .logout-button {
+    background-color: #50b3a2;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 12px;
+}
+
+button:hover, .button:hover, .logout-button:hover {
+    background-color: #3a8279;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Hidden elements */
+.hidden, .hidden_p {
+    display: none;
+}
