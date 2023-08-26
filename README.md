@@ -11,3 +11,6 @@ create a user named admin with password admin
         GRANT ALL PRIVILEGES ON hackton.* TO 'admin'@'localhost';
         FLUSH PRIVILEGES;
         Connect hackton
+pip install -r requirements.txt
+
+python main.py
