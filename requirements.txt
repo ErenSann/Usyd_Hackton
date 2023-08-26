@@ -1,0 +1,8 @@
+Flask == 2.3.3
+Flask-MySQL
+flask-socketio == 5.3.5
+mysqlclient
+passlib
+PyMySQL==1.1.0
+Werkzeug
+socketio
