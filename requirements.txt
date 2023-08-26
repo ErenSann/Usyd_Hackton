@@ -1,0 +1,5 @@
+Flask == 2.3.3
+Flask-MySQL
+mysqlclient
+passlib
+PyMySQL==1.1.0
