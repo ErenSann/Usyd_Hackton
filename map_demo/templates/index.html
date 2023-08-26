@@ -21,8 +21,17 @@
 </head>
 <body>
 <div id="map-canvas"></div>
+<div id="color-selection">
+    <button data-color="red">Red Pin</button>
+    <button data-color="blue">Blue Pin</button>
+    <button data-color="green">Green Pin</button>
+    <!-- 您可以继续添加其他颜色的按钮 -->
+</div>
 <div id="info-box">
     <h3>Pin Information</h3>
+    <div id="search-box">
+        <input type="text" id="pin-search" placeholder="Search for a pin...">
+    </div>
     <ul id="pin-list"></ul>
 </div>
 </body>

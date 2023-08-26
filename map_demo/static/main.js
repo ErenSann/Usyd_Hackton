@@ -1,4 +1,18 @@
 var map;
+var selectedColor = 'red';
+
+var buttons = document.querySelectorAll("#color-selection button");
+buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        selectedColor = this.getAttribute('data-color');
+    });
+});
+
+document.getElementById("pin-search").addEventListener('input', function() {
+    var searchTerm = this.value.toLowerCase();
+    filterPins(searchTerm);
+});
+
 function initialize() {
   var mapOptions = {
     zoom: 8,
@@ -12,10 +26,18 @@ function initialize() {
 }
 
 function addMarker(location) {
-  var marker = new google.maps.Marker({
-    position: location,
-    map: map
-  });
+    var marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            fillColor: selectedColor,
+            fillOpacity: 1,
+            scale: 5,
+            strokeColor: 'white',
+            strokeWeight: 1
+        }
+    });
 
   var pinForm = document.getElementById("pin-form");
   pinForm.classList.remove("hidden");
@@ -53,3 +75,15 @@ function addMarker(location) {
 }
 
 window.onload = initialize;
+
+function filterPins(term) {
+    var pins = document.querySelectorAll("#pin-list li");
+
+    pins.forEach(function(pin) {
+        if (pin.textContent.toLowerCase().includes(term)) {
+            pin.style.display = "";
+        } else {
+            pin.style.display = "none";
+        }
+    });
+}

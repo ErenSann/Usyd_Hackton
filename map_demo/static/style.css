@@ -3,6 +3,7 @@
   width: 70%;
   float: left;
   border: 2px solid #ccc;
+  position: relative;
 }
 
 #info-box {
@@ -32,4 +33,25 @@ h3 {
   padding: 20px;
   border: 2px solid black;
   z-index: 1000;
+}
+
+#color-selection {
+    padding: 10px;
+}
+
+#color-selection button {
+    margin-bottom: 10px;
+    display: block;
+}
+
+#search-box {
+    margin: 10px 0;
+}
+
+#pin-search {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
