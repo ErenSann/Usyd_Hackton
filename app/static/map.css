@@ -1,77 +1,66 @@
 /* Resetting default browser styles */
-body, h1, h2, h3, p {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     line-height: 1.6;
     color: #333;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9;
 }
 
+/* Header styles */
 header {
     background: url('background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
-    padding: 20px;
+    padding: 0.5rem;
     text-align: center;
     animation: fadeIn 3s ease-in;
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+.header-content h1 {
+    font-size: 2.0rem;
 }
 
+.header-content p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.header-buttons {
+    margin-top: 1rem;
+}
+
+/* Map styles */
 #map-canvas {
     height: 500px;
     width: 70%;
     float: left;
     border: 2px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.info-point-box {
-    position: fixed;
-    bottom: 10px;
+/* Info and action buttons */
+#info-box, #action-buttons, #color-selection {
+    margin: 1rem;
+    padding: 1rem;
     background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-#info-box {
-    right: 270px; /* Provides room for point-box */
-}
-
-#point-box {
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1001; /* Increased z-index */
-}
-
-#joinChatRoomInPointBox {
-    display: inline-block;  /* Ensure button is displayed */
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px; /* Add some space at the top */
-}
-
-
-.hidden, .hidden_p {
-    display: none;
+/* Pin and Point box styles */
+.info-point-box, #pin-form {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 #pin-form {
@@ -79,24 +68,41 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #fff;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
 }
 
-.button {
+#point-box {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+#close-point-box {
+    cursor: pointer;
+}
+
+/* Buttons */
+button, .button, .logout-button {
     background-color: #50b3a2;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    margin-top: 5px;
+    padding: 0.6rem 1.2rem;
+    margin-top: 0.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 12px;
 }
 
-.button:hover {
+button:hover, .button:hover, .logout-button:hover {
     background-color: #3a8279;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Hidden elements */
+.hidden, .hidden_p {
+    display: none;
 }

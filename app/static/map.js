@@ -62,3 +62,29 @@ function cancelCreatePoint() {
     }
 }
 
+function findMyLocation() {
+    // Check if Geolocation is supported
+    if (!navigator.geolocation) {
+        alert("Geolocation is not supported by your browser.");
+        return;
+    }
+
+    // Get current position
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+        var location = new google.maps.LatLng(lat, lng);
+
+        // Place a marker on the map
+        new google.maps.Marker({
+            position: location,
+            map: map,
+            title: "You are here!"
+        });
+
+        // Center the map at the location
+        map.setCenter(location);
+    }, function() {
+        alert("Error getting location.");
+    });
+}
