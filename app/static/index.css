@@ -1,0 +1,78 @@
+/* Resetting some default browser styles */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Adding a black background color to our text */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Add a background image to the header and some animation */
+header {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 3s ease-in;
+}
+
+/* Add fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.header-content {
+    text-align: left;
+}
+
+.header-buttons {
+    margin-left: auto;
+}
+
+.login-button,
+.signup-button {
+    background-color: white;
+    color: #50b3a2;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.login-button:hover,
+.signup-button:hover {
+    background-color: #50b3a2;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Main content styles */
+.main-content {
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: #fff;
+}

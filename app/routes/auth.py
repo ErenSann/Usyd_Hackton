@@ -1,8 +1,16 @@
 import MySQLdb
 from flask import render_template, request, redirect, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
-from app.db import get_db
 from . import main
+from app.db import get_user_by_username, insert_user
+
+@main.route('/')
+def home():
+    if 'username' in session:
+        return render_template('home.html', username=session['username'])
+    # return redirect(url_for('main.index'))
+    return render_template('index.html')
+
 
 @main.route('/login', methods=['GET', 'POST'])
 def login():
@@ -10,15 +18,10 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        # connect to the database
-        db = MySQLdb.connect(host="localhost", user="admin", passwd="admin", db="hackton")
-        cursor = db.cursor()
+        account = get_user_by_username(username)  # Using db function
 
-        cursor.execute("SELECT * FROM users WHERE username=%s", (username,))
-        account = cursor.fetchone()
-        print("login")
-        print(account[2])
         if account and check_password_hash(account[2], password):
+            session['user_id'] = account[0]
             session['username'] = account[1]
             return redirect(url_for('main.home'))
         else:
@@ -32,16 +35,10 @@ def register():
         username = request.form['username']
         password = request.form['password']
         hashed_password = generate_password_hash(password, method='sha256')
-        print("register")
-        print(hashed_password)
 
-        db = MySQLdb.connect(host="localhost", user="admin", passwd="admin", db="hackton")
-        cursor = db.cursor()
+        insert_user(username, hashed_password)  # Using db function
 
-        cursor.execute("INSERT INTO users (username, password) VALUES (%s, %s)", (username, hashed_password))
-        db.commit()
-
-        return render_template('login.html')
+        return redirect(url_for('main.login'))  # Redirecting to login page after successful registration
 
     return render_template('register.html')
 

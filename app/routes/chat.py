@@ -5,11 +5,6 @@ from . import main
 
 user_rooms = {}
 
-@main.route('/')
-def home():
-    if 'username' in session:
-        return render_template('home.html', username=session['username'])
-    return redirect(url_for('main.login'))
 
 @main.route('/chat')
 def chat():

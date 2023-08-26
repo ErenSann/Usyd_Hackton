@@ -1,8 +1,9 @@
 Flask == 2.3.3
 Flask-MySQL
+Flask-MySQLdb == 1.0.1
 flask-socketio == 5.3.5
 mysqlclient
 passlib
 PyMySQL==1.1.0
 Werkzeug
-socketio
+socketio == 0.2.1

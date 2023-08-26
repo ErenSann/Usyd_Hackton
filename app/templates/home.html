@@ -2,32 +2,43 @@
 <html>
 <head>
     <title>Simple Google Maps App</title>
-    <a href="/chat"><button class="chat-button">Go to Chat</button></a>
-    <a href="/logout">Logout</a>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='map.css') }}">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnRpQ2BiFb6skH2qkvgCW0Bthwb83PVf0"></script>
     <script src="{{ url_for('static', filename='map.js') }}" defer></script>
-
-    <div id="pin-form" class="hidden">
-        <h4>Add Pin Information</h4>
-        <form id="pin-form-fields">
-            <label for="pin-name">Name:</label><br>
-            <input type="text" id="pin-name"><br><br>
-
-            <label for="pin-description">Description:</label><br>
-            <textarea id="pin-description"></textarea><br><br>
-
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+    <script src="{{ url_for('static', filename='infoBox.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='pin.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='util.js') }}" defer></script>
 </head>
 <body>
+<header>
+    <div class="header-content">
+        <h1>Simple Google Maps App</h1>
+        <p>Interact, Connect, and Explore</p>
+    </div>
+    <div class="header-buttons">
+        <a href="/chat"><button class="chat-button">Go to Chat</button></a>
+        <a href="/logout"><button class="logout-button">Logout</button></a>
+    </div>
+</header>
 <div id="map-canvas"></div>
 <div id="color-selection">
     <button data-color="red">Red Pin</button>
     <button data-color="blue">Blue Pin</button>
     <button data-color="green">Green Pin</button>
-    <!-- add button-->
+</div>
+<div id="action-buttons">
+    <button onclick="toggleCreatePoint()">Create Point</button>
+    <button onclick="cancelCreatePoint()">Cancel</button>
+</div>
+<div id="pin-form" class="hidden">
+    <h4>Add Pin Information</h4>
+    <form id="pin-form-fields">
+        <label for="pin-name">Name:</label><br>
+        <input type="text" id="pin-name"><br><br>
+        <label for="pin-description">Description:</label><br>
+        <textarea id="pin-description"></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
 </div>
 <div id="info-box">
     <h3>Pin Information</h3>
@@ -36,5 +47,12 @@
     </div>
     <ul id="pin-list"></ul>
 </div>
+<div id="point-box" class="hidden info-point-box">
+    <span id="close-point-box" style="cursor:pointer;">x</span>
+    <h3 id="point-name"></h3>
+    <p id="point-description"></p>
+    <p id="point-creator"></p>
+</div>
+
 </body>
 </html>
