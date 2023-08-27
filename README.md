@@ -17,3 +17,7 @@ create a user named netShareAdmin with password admin
 pip install -r requirements.txt
 
 python main.py
+
+
+PS:
+If u find no package socketio, pls put the socketio directory in the home directory to the desired position in your python directory
