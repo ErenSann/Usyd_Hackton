@@ -12,5 +12,7 @@ create a user named admin with password admin
         FLUSH PRIVILEGES;
         Connect hackton
 pip install -r requirements.txt
+
 pip install socketio==0.2.1 --user
+
 python main.py
