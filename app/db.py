@@ -1,7 +1,7 @@
 import MySQLdb
 
 def get_db():
-    return MySQLdb.connect(host="localhost", user="admin", passwd="admin", db="hackton")
+    return MySQLdb.connect(host="localhost", user="netShareAdmin", passwd="admin", db="hackton")
 
 def check_user(username, password):
     conn = get_db()

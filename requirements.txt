@@ -6,4 +6,4 @@ mysqlclient
 passlib
 PyMySQL==1.1.0
 Werkzeug
-socketio == 0.2.1
+socketio
